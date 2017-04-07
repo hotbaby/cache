@@ -14,7 +14,8 @@ _logger = logging.getLogger('app_cache')
 def session(request):
     session = cache.get('session')
     if not session:
-        session = cache.set('session', 'hotbaby', timeout=EXPIRE_TIME) 
+        session = 'hotbaby'
+        cache.set('session', session, timeout=EXPIRE_TIME)
         _logger.debug('cache not hit')
     else:
         _logger.debug('cache hit')
